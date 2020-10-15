@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @destination.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @destination.country %>
+</p>
+
+<h2>Featured Post</h2>
+<p><%= link_to @destination.most_liked_post.title, post_path(@destination.most_liked_post) %></p>
+<h2>How old are our bloggers, do you care?</h2>
+<p><%= @destination.bloggers_avg_age %></p>
+<h2>Most Recent Posts</h2>
+<% @destination.most_recent_posts.each do |post| %>
+  <p><%= link_to post.title, post_path(post) %></p>
+<%end%>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>

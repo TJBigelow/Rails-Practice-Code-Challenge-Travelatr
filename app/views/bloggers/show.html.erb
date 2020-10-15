@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blogger.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @blogger.bio %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @blogger.age %>
+</p>
+<h2> Look how successful this Goober is </h2>
+<p>Total Likes:<%= @blogger.total_likes %>
+
+<h2>Featured Post</h2>
+<p><%= link_to @blogger.most_liked_post.title, post_path(@blogger.most_liked_post) %></p><br>
+<h2>Favorite Destinations</h2>
+<% @blogger.most_written_about.each do |destination| %>
+  <p><%= link_to destination.name, destination_path(destination) %></p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_blogger_path(@blogger) %> |
+<%= link_to 'Back', bloggers_path %>
